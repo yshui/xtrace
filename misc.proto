@@ -1,0 +1,43 @@
+EXTENSION "XC-MISC" Misc
+USE core
+
+REQUESTS
+GetVersion RESPONDS
+GetXIDRange RESPONDS
+GetXIDList RESPONDS
+END
+
+EVENTS
+END
+
+ERRORS
+END
+
+REQUEST GetVersion
+ 4	client_major_version	UINT16
+ 6	client_minor_version	UINT16
+END
+RESPONSE GetVersion
+ 8	server_major_version	UINT16
+10	server_minor_version	UINT16
+END
+
+REQUEST GetXIDRange
+END
+
+RESPONSE GetXIDRange
+ 8	start_id	UINT32
+12	count		UINT32
+END
+
+REQUEST GetXIDList
+ 4	count		UINT32
+END
+
+RESPONSE GetXIDList
+ 8	"#ids"		UINT32
+32	ids		LISTofCARD32
+END
+
+EOF
+
